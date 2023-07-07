@@ -1,7 +1,7 @@
 {
   "description": "Lit web component for the feature flags rendering options",
   "name": "lit-preact-feature-flag",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "private": false,
   "keywords": [
