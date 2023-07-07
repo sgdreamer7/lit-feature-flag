@@ -7,7 +7,7 @@ import copy from 'rollup-plugin-copy';
 import alias from '@rollup/plugin-alias';
 import nodePolyfills from 'rollup-plugin-polyfill-node';
 import watchAssets from 'rollup-plugin-watch-assets';
-import replace from '@rollup/plugin-replace';
+import css from "rollup-plugin-import-css";
 import { terser } from './rollup.terser.cjs';
 import config from './convict.js';
 
@@ -50,6 +50,7 @@ export default {
         { find: 'react-dom', replacement: preactReplacement },
       ],
     }),
+    css(),
     typescript({ tsconfig: './tsconfig.json' }),
     !isLocal ? terser() : null,
   ],
