@@ -24,6 +24,11 @@ export default {
     dir: 'dist',
     chunkFileNames: `[name].js`,
     entryFileNames: `[name].js`,
+    manualChunks: (id) => {
+      if (id.includes('node_modules')) {
+        return 'vendor';
+      }
+    },
   },
   plugins: [
     copy({
