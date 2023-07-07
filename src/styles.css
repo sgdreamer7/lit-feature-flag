@@ -1,0 +1,31 @@
+.home-demo {
+  background: #f8f8f8;
+  border: 2px solid #ddd;
+  padding: 20px
+}
+
+.home-demo label {
+  color: #444
+}
+
+.home-demo label span:first-child {
+  display: block
+}
+
+.home-demo button,.home-demo input {
+  border: 1px solid #673ab8;
+  border-radius: 3px;
+  font-size: 100%;
+  margin: 0 5px 0 .5rem;
+  padding: 5px 10px
+}
+
+.home-demo button {
+  background: #673ab8;
+  color: #fff
+}
+
+.home-demo input {
+  box-sizing: border-box;
+  width: 75%
+}

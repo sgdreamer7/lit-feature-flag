@@ -1,0 +1,10 @@
+.env
+.env.*
+*.js
+*.cjs
+tsconfig.json
+flagd
+src
+dist/**
+!dist/*.js
+!dist/*.d.ts

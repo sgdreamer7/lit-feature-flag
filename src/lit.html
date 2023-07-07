@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<head>
+  <script>
+    window.addEventListener("load", function (event) {
+      localStorage.setItem("feature-flags/Awesome feature 1", "true");
+      localStorage.setItem("feature-flags/Awesome feature 2", "true");
+    });
+  </script>
+  <script type="module" src="lit-feature-flag.js"></script>
+  <script type="module" src="preact-todo-list.js"></script>
+  <style>
+    table {
+      width: 95vw;
+      margin: 10px;
+    }
+
+    td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 align="center"><b>Lit</b> feature-flag web-component example</h1>
+  <table border="5">
+    <thead>
+      <tr>
+        <th colspan="2">Local Storage provider example</th>
+      </tr>
+      <tr>
+        <th>
+          <input type="checkbox" id="featureFlagToggle1" checked
+            onClick="document.querySelector('#featureFlag1').setFeatureFlag(this.checked)">Awesome feature 1</input>
+        </th>
+        <th>
+          <input type="checkbox" id="featureFlagToggle2" checked
+            onClick="document.querySelector('#featureFlag2').setFeatureFlag(this.checked)">Awesome feature 2</input>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <feature-flag feature="Awesome feature 1" provider="local storage" id="featureFlag1">
+            <p>This is an awesome feature 1<br />
+              <todo-list />
+            </p>
+          </feature-flag>
+        </td>
+        <td>
+          <feature-flag feature="Awesome feature 2" provider="local storage" id="featureFlag2">
+            <p>This is an awesome feature 2</p>
+            <todo-list />
+          </feature-flag>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <table border="5">
+    <thead>
+      <tr>
+        <th colspan="3">Cookie provider</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <feature-flag feature="Awesome feature 3" provider="cookie" id="featureFlag3">
+            <p>This is an awesome feature 3</p>
+            <todo-list />
+          </feature-flag>
+        </td>
+        <td>
+          <feature-flag feature="Awesome feature 4" provider="cookie" id="featureFlag4">
+            <p>This is an awesome feature 4</p>
+            <todo-list />
+          </feature-flag>
+        </td>
+        <td>
+          <feature-flag feature="Awesome feature 5" provider="cookie" id="featureFlag5">
+            <p>This is an awesome feature 5</p>
+            <todo-list />
+          </feature-flag>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <table border="5">
+    <thead>
+      <tr>
+        <th colspan="3">OpenFeature flagd provider</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <feature-flag feature="Awesome feature 6" provider="openfeature|flagd" options="http://localhost:8013"
+            id="featureFlag6">
+            <p>This is an awesome feature 6</p>
+            <todo-list />
+          </feature-flag>
+        </td>
+        <td>
+          <feature-flag feature="Awesome feature 7" provider="openfeature|flagd" options="http://localhost:8013"
+            id="featureFlag7">
+            <p>This is an awesome feature 7</p>
+            <todo-list />
+          </feature-flag>
+        </td>
+        <td>
+          <feature-flag feature="Awesome feature 8" provider="openfeature|flagd" options="http://localhost:8013"
+            id="featureFlag8">
+            <p>This is an awesome feature 8</p>
+            <todo-list />
+          </feature-flag>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <table border="5">
+    <thead>
+      <tr>
+        <th colspan="3">Http header provider</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <feature-flag feature="Awesome feature 9" provider="http-header" id="featureFlag9">
+            <p>This is an awesome feature 9</p>
+            <todo-list />
+          </feature-flag>
+        </td>
+        <td>
+          <feature-flag feature="Awesome feature 10" provider="http-header" id="featureFlag10">
+            <p>This is an awesome feature 10</p>
+            <todo-list />
+          </feature-flag>
+        </td>
+        <td>
+          <feature-flag feature="Awesome feature 11" provider="http-header" id="featureFlag11">
+            <p>This is an awesome feature 11</p>
+            <todo-list />
+          </feature-flag>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 align="center"><a href="index.html"><--- Back</a></h3>
+</body>

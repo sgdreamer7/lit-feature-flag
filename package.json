@@ -1,0 +1,61 @@
+{
+  "description": "Lit web component for the feature flags rendering options",
+  "name": "lit-preact-feature-flag",
+  "version": "1.0.3",
+  "type": "module",
+  "private": false,
+  "keywords": [
+    "ssg",
+    "mfe",
+    "lit",
+    "preact",
+    "feature-flag"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@lit/reactive-element": "^1.0.0",
+    "@openfeature/flagd-web-provider": "^0.3.4",
+    "@openfeature/web-sdk": "^0.3.4-experimental",
+    "convict": "^6.2.4",
+    "convict-format-with-validator": "^6.2.0",
+    "lit": "^2.0.0",
+    "lit-element": "^3.0.0",
+    "lit-html": "^2.0.0",
+    "preact": "^10.15.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^5.0.0",
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-graphql": "^2.0.1",
+    "@rollup/plugin-json": "^5.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@rollup/plugin-typescript": "^11.1.1",
+    "browser-sync": "^2.29.3",
+    "dotenv-cli": "^7.2.1",
+    "jest-worker": "^29.2.1",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^3.25.3",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-polyfill-node": "^0.12.0",
+    "rollup-plugin-string": "^3.0.0",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "rollup-plugin-watch-assets": "^1.0.1",
+    "serialize-javascript": "^6.0.0",
+    "terser": "^5.15.1",
+    "typescript": "^5.1.3"
+  },
+  "scripts": {
+    "build": "dotenv -e .env run-s build:init build:rollup",
+    "build:init": "test -d dist && rm -r dist; mkdir dist",
+    "build:rollup": "rollup -c --environment INCLUDE_DEPS",
+    "dev": "dotenv -e .env run-p dev:flagd dev:js dev:html",
+    "dev:clean": "dotenv -e .env run-p dev:flagd:stop",
+    "dev:js": "rollup -c -w --environment INCLUDE_DEPS,BUILD:local",
+    "dev:html": "node browser-sync.config.js",
+    "dev:flagd": "docker-compose -f flagd/docker-compose.yaml up -d",
+    "dev:flagd:stop": "docker-compose -f flagd/docker-compose.yaml down",
+    "prepublishOnly": "BUILD=production npm run build"
+  }
+}
