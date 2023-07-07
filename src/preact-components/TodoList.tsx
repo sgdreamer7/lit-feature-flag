@@ -1,6 +1,6 @@
 
 import { Component, JSX } from 'preact';
-import styles from '../styles.css';
+// import styles from '../styles.css';
 
 type State = { todos: Array<string>, text: string };
 
@@ -20,7 +20,8 @@ export class TodoList extends Component {
   render({ }, state: State) {
     return (
       <main>
-        <style>${styles}</style>
+        {/* <style>${styles}</style> */}
+        <link rel="stylesheet" href="styles.css" />
         <div class="home-demo">
           <form onSubmit={this.addTodo} action="javascript:">
             <label>
